@@ -4,8 +4,10 @@ Download and run the script <code>windows-installation.bat</code>. No need to cl
 
 <h4>Optional: store API-keys in appropriate location for additional features</h4> 
 <p>Some features of the program require API-keys:</p>
-- [OpenCage](https://opencagedata.com/) location converter to translate GPS coordinates to readable locations. Register at OpenCage and get a free API key, put it in a text file with the name <code>OpenCageAPIKey.txt</code>, and store the file in this directory: \hardlopen\backend-runs\src\main\resources\api-keys.
-- Search if imported run is also uploaded to [Strava](https://www.strava.com). If so, the application will link to the respective run. Updates to the Strava name (in Strava) can be made directly from the application. Contact me to request the api key.
+<ul>
+<li>[OpenCage](https://opencagedata.com/) location converter to translate GPS coordinates to readable locations. Register at OpenCage and get a free API key, put it in a text file with the name <code>OpenCageAPIKey.txt</code>, and store the file in this directory: \hardlopen\backend-runs\src\main\resources\api-keys.</li>
+<li>Search if imported run is also uploaded to [Strava](https://www.strava.com). If so, the application will link to the respective run. Updates to the Strava name (in Strava) can be made directly from the application. Contact me to request the api key.</li>
+</ul>
 
 <h4>Load the application</h4>
 Go to http://localhost:4200 to load the application.
