@@ -1,0 +1,23 @@
+# IntelliJ project files 
+*.iml
+*.iws
+*.ipr
+.idea/
+
+# eclipse project file
+.settings/
+.classpath
+.project
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Other git repositories
+/backend-locations
+/backend-runs
+/frontend
+
+# databases
+/database-h2
+/database-postgres
