@@ -1,6 +1,6 @@
 <h4>Build and deploy</h4>
 Ensure [docker](https://www.docker.com/) is running.
-Download and run the script <code>windows-installation.bat</code>. No need to clone a project, script will do it for you.
+Download script <code>windows-installation.bat</code> to an empty folder and run it. No need to clone a project, script will do it for you.
 
 <h4>Optional: store API-keys in appropriate location for additional features</h4> 
 <p>Some features of the program require API-keys:</p>
