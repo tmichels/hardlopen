@@ -1,21 +1,13 @@
-# IntelliJ project files 
-*.iml
-*.iws
-*.ipr
-.idea/
-
-# eclipse project file
-.settings/
-.classpath
-.project
-
 # System Files
 .DS_Store
 Thumbs.db
 
 # Other git repositories
-/backend-locations
+/backend-location
 /backend-runs
+/backend-tcxreader
+/backend-strava
+/sample_runs
 /frontend
 
 # databases

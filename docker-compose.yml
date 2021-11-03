@@ -28,13 +28,28 @@ services:
       - ./backend-runs/src/main/resources/runs:/opt/hardlopen/backend-runs/target/src/main/resources/runs:rw
     environment:
       - spring.datasource.url=jdbc:postgresql://database:5432/hardlopen
-      - location.url=http://backend-locations:8081/
+      - service-address.location-service=http://backend-location:8081/
+      - service-address.strava-service=http://backend-strava:8082/
     restart: always
     
-  backend-locations: 
-    image: backend-locations
+  backend-location: 
+    image: backend-location
     ports:
       - 8081:8081
     volumes:
-      - ./backend-locations/src/main/resources/api-key:/opt/hardlopen/backend-locations/target/src/main/resources/api-key:ro
+      - ./backend-location/src/main/resources/api-key:/opt/hardlopen/backend-location/target/src/main/resources/api-key:ro
+    restart: always 
+    
+  backend-strava: 
+    image: backend-strava
+    ports:
+      - 8082:8082
+    volumes:
+      - ./backend-strava/src/main/resources/api-key:/opt/hardlopen/backend-strava/target/src/main/resources/api-key:ro
+    restart: always 
+    
+  backend-tcxreader:
+    image: backend-tcxreader
+    ports:
+      - 8083:8083  
     restart: always 
