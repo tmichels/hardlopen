@@ -25,11 +25,13 @@ services:
       - ./database-postgres:/opt/hardlopen/database-postgres:rw
       - ./backend-runs/logfiles:/opt/hardlopen/backend-runs/logfiles:rw
       - ./backend-runs/src/main/resources/api-keys:/opt/hardlopen/backend-runs/target/src/main/resources/api-keys:ro
-      - ./backend-runs/src/main/resources/runs:/opt/hardlopen/backend-runs/target/src/main/resources/runs:rw
+      - ./sample_runs:/opt/hardlopen/sample_runs:rw
     environment:
+      - path-configuration.run-files-relative-path=/opt/hardlopen/sample_runs
       - spring.datasource.url=jdbc:postgresql://database:5432/hardlopen
       - service-address.location-service=http://backend-location:8081/
       - service-address.strava-service=http://backend-strava:8082/
+      - service-address.tcx-reader-service=http://backend-tcxreader:8083/
     restart: always
     
   backend-location: 
@@ -50,6 +52,8 @@ services:
     
   backend-tcxreader:
     image: backend-tcxreader
+    volumes:
+      - ./sample_runs:/opt/hardlopen/sample_runs:rw
     ports:
       - 8083:8083  
     restart: always 
