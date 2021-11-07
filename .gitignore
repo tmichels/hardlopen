@@ -2,6 +2,9 @@
 .DS_Store
 Thumbs.db
 
+# IntelliJ
+/.idea
+
 # Other git repositories
 /backend-location
 /backend-runs

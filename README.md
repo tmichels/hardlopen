@@ -1,13 +1,13 @@
-<h4>Build and deploy</h4>
-Ensure [docker](https://www.docker.com/) is running.
-Download script <code>windows-installation.bat</code> to an empty folder and run it. No need to clone a project, script will do it for you.
-
-<h4>Optional: store API-keys in appropriate location for additional features</h4> 
-<p>Some features of the program require API-keys:</p>
-<ul>
-<li>[OpenCage](https://opencagedata.com/) location converter to translate GPS coordinates to readable locations. Register at OpenCage and get a free API key, put it in a text file with the name <code>OpenCageAPIKey.txt</code>, and store the file in this directory: \hardlopen\backend-runs\src\main\resources\api-keys.</li>
-<li>Search if imported run is also uploaded to [Strava](https://www.strava.com). If so, the application will link to the respective run. Updates to the Strava name (in Strava) can be made directly from the application. Contact me to request the api key.</li>
-</ul>
-
-<h4>Load the application</h4>
-Go to http://localhost:4200 to load the application.
+<h1>Installation instructions</h1>
+<ol>
+    <li>Download the applications. From the application's root directory, run <code>./installation-scripts/git_clone_script.sh</code>. You will be prompted for
+        <ul>
+            <li>Github personal access code -> required to get access to my private repositories. Available on request by sending me a message.</li>
+            <li><a href="https://opencagedata.com/">OpenCage</a> API key -> api to translate GPS coordinates to readable locations. Register at OpenCage and get a free API key.</li>
+            <li><a href="https://www.strava.com">Strava</a> Secret -> required to link runs in the application with runs that are also stored in your Strava account.</li>
+        </ul>
+    </li>
+    <li>Build the Docker images. Run <code>./installation-scripts/build_docker_images.sh</code> from the application's root directory.</li>
+    <li>Optional: replace the sample runs in the folder <code>sample_runs</code> with your own TCX runs.</li>
+    <li>Start the application. Run <code>docker-compose up</code> from the application's root directory. Go to http://localhost:4200 to see the web application.</li>
+</ol>
