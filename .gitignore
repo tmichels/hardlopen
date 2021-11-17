@@ -16,3 +16,7 @@ Thumbs.db
 # databases
 /database-h2
 /database-postgres
+
+#Github personal key
+github-ghp.txt
+
