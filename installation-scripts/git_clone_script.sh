@@ -20,7 +20,7 @@ echo $open_cage_key > backend-location/src/main/resources/api-key/OpenCageAPIKey
 read -p 'Enter the Strava secret: ' strava_secret
 echo $strava_secret > backend-strava/src/main/resources/api-key/StravaSecret.txt
 echo
-$access_token > github-ghp.txt
+echo $access_token > github-ghp.txt
 
 echo The repositories were successfully cloned. The structure is expected to be """
 ├── hardlopen
