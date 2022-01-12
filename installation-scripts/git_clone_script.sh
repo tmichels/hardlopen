@@ -13,6 +13,8 @@ git clone https://$access_token@github.com/tmichels/frontend.git
 echo
 git clone https://$access_token@github.com/tmichels/backend-location.git
 echo
+git clone https://$access_token@github.com/tmichels/backend-trace-maker.git
+echo
 
 echo 'Decrypting OpenCage api key.'
 sleep 2
@@ -29,6 +31,7 @@ echo The repositories were successfully cloned. The structure is expected to be 
 │   ├── backend-runs
 │   ├── backend-strava
 │   ├── backend-tcxreader
+│   ├── backend-trace-maker
 │   ├── docker-compose.yml
 │   ├── frontend
 │   ├── installation-scripts

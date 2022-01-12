@@ -57,3 +57,9 @@ services:
     ports:
       - 8083:8083  
     restart: always 
+    
+  backend-trace-maker:
+    image: backend-trace-maker
+    ports:
+      - 8084:8084  
+    restart: always 
