@@ -32,6 +32,7 @@ services:
       - service-address.location-service=http://backend-location:8081/
       - service-address.strava-service=http://backend-strava:8082/
       - service-address.tcx-reader-service=http://backend-tcxreader:8083/
+      - service-address.trace-service=http://backend-trace-maker:8084/
     restart: always
     
   backend-location: 
