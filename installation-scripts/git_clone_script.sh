@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /usr/bin/env bash
 
 read -p 'Enter the Github personal access code: ' access_token
 
@@ -27,16 +27,16 @@ echo
 
 echo The repositories were successfully cloned. The structure is expected to be """
 ├── hardlopen
-│   ├── backend-location
-│   ├── backend-runs
-│   ├── backend-strava
-│   ├── backend-tcxreader
-│   ├── backend-trace-maker
-│   ├── docker-compose.yml
-│   ├── frontend
-│   ├── installation-scripts
-│   ├── README.md
-│   └── sample_runs
+│  ├── backend-location
+│  ├── backend-runs
+│  ├── backend-strava
+│  ├── backend-tcxreader
+│  ├── backend-trace-maker
+│  ├── docker-compose.yml
+│  ├── frontend
+│  ├── installation-scripts
+│  ├── README.md
+│  └── sample_runs
 """
 echo Run \"./installation-scripts/build_docker_images.sh\" to build the docker images \(sudo may be required\).
 echo After building the docker images, start the application by running \"docker-compose up\" \(sudo may be required\).

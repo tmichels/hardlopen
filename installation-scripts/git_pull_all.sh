@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /usr/bin/env bash
 
 git pull ./backend-runs
 git pull ./backend-tcxreader
