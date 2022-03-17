@@ -1,5 +1,16 @@
 #! /usr/bin/env bash
 
+function confirm_is_in_right_directory() {
+  ls=$(ls)
+  if [[ $ls != *"installation-scripts"* ]]; then
+      echo "Clone script not executed, you are not in the root directory of the project."
+      echo "Go to root (\"hardlopen\") and execute:"
+      echo -e "\t ./installation-scripts/git_clone_script.sh"
+      exit 1
+  fi
+}
+confirm_is_in_right_directory;
+
 read -p 'Enter the Github personal access code: ' access_token
 
 echo
