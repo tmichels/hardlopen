@@ -21,3 +21,5 @@ Thumbs.db
 #Github personal key
 github-ghp.txt
 
+# Log file
+*.log

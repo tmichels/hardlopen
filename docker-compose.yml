@@ -23,7 +23,7 @@ services:
       - 8080:8080
     volumes:
       - ./database-postgres:/opt/hardlopen/database-postgres:rw
-      - ./backend-runs/logfiles:/opt/hardlopen/backend-runs/logfiles:rw
+      - ./docker-logfiles/backend-runs:/opt/hardlopen/backend-runs/target/logfiles:rw
       - ./backend-runs/src/main/resources/api-keys:/opt/hardlopen/backend-runs/target/src/main/resources/api-keys:ro
       - ./sample_runs:/opt/hardlopen/sample_runs:rw
     environment:
@@ -41,6 +41,7 @@ services:
       - 8081:8081
     volumes:
       - ./backend-location/src/main/resources/api-key:/opt/hardlopen/backend-location/target/src/main/resources/api-key:ro
+      - ./docker-logfiles/backend-location:/opt/hardlopen/backend-location/target/logfiles:rw
     restart: on-failure:10 
     
   backend-strava: 
@@ -49,6 +50,7 @@ services:
       - 8082:8082
     volumes:
       - ./backend-strava/src/main/resources/api-key:/opt/hardlopen/backend-strava/target/src/main/resources/api-key:ro
+      - ./docker-logfiles/backend-strava:/opt/hardlopen/backend-strava/target/logfiles:rw
     restart: on-failure:10 
     
   backend-tcxreader:
@@ -62,5 +64,7 @@ services:
   backend-trace-maker:
     image: backend-trace-maker
     ports:
-      - 8084:8084  
+      - 8084:8084
+    volumes:
+      - ./docker-logfiles/backend-trace-maker:/opt/hardlopen/backend-trace-maker/target/logfiles:rw  
     restart: on-failure:10 
