@@ -22,4 +22,5 @@ Thumbs.db
 github-ghp.txt
 
 # Log file
+/docker-logfiles
 *.log

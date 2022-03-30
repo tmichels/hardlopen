@@ -5,7 +5,7 @@ function confirm_is_in_right_directory() {
   if [[ $ls != *"installation-scripts"* ]]; then
       echo "Clone script not executed, you are not in the root directory of the project."
       echo "Go to root (\"hardlopen\") and execute:"
-      echo -e "\t ./installation-scripts/git_clone_script.sh"
+      echo -e "\n\t ./installation-scripts/git_clone_script.sh\n"
       exit 1
   fi
 }
