@@ -11,8 +11,8 @@ function confirm_is_in_right_directory() {
 }
 confirm_is_in_right_directory;
 
-if [[ $1 != "pull" && $1 != "push" ]]; then
-    echo "Nothing pushed or pulled. Give push or pull as argument."
+if [[ $1 != "pull" && $1 != "push" && $1 != "status" && $1 != "diff" ]]; then
+    echo "Give a valid git argument to execute the git command (e.g. push, pull, status, diff). Nothing is executed."
     exit 1
 fi
 
@@ -20,25 +20,25 @@ echo "$1ing root project..."
 git $1
 
 cd backend-runs
-echo -e "\n$1ing backend-runs..."
+echo -e "\n------------\nExecute \"git $1\" for backend-runs..."
 git $1
 
 cd ../backend-tcxreader
-echo -e "\n$1ing backend-tcxreader..."
+echo -e "\n------------\nExecute \"git $1\" for backend-tcxreader..."
 git $1
 
 cd ../backend-strava
-echo -e "\n$1ing backend-strava..."
+echo -e "\n------------\nExecute \"git $1\" for backend-strava..."
 git $1
 
 cd ../frontend
-echo -e "\n$1ing frontend..."
+echo -e "\n------------\nExecute \"git $1\" for frontend..."
 git $1
 
 cd ../backend-location
-echo -e "\n$1ing backend-location..."
+echo -e "\n------------\nExecute \"git $1\" for backend-location..."
 git $1
 
 cd ../backend-trace-maker
-echo -e "\n$1ing backend-trace-maker..."
+echo -e "\n------------\nExecute \"git $1\" for backend-trace-maker..."
 git $1
