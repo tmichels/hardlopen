@@ -26,7 +26,7 @@
 
 <h1>Installation instructions</h1>
 <ol>
-    <li>Clone this (public) repository. From the repository's root directory, run <code>./installation-scripts/git_clone_script.sh</code>
+    <li>Clone this (public) repository. From the repository's root directory, run <code>./installation-scripts/clone_script.sh</code>
         to download the private repositories with all the services. You will be prompted for the Github personal access
         code (available on request by sending me a message).
     </li>

@@ -16,29 +16,46 @@ if [[ $1 != "pull" && $1 != "push" && $1 != "status" && $1 != "diff" ]]; then
     exit 1
 fi
 
-echo "$1ing root project..."
+CYAN_COLOUR='\033[1;96m'
+NO_COLOUR='\033[0m'
+
+echo -e "########################################################################\n#"
+echo -e "#  Execute \"git $1\" for ${CYAN_COLOUR}root project${NO_COLOUR}..."
+echo -e "#\n########################################################################\n"
 git $1
 
 cd backend-runs
-echo -e "\n------------\nExecute \"git $1\" for backend-runs..."
+echo -e "\n\n########################################################################\n#"
+echo -e "#  Execute \"git $1\" for ${CYAN_COLOUR}backend-runs${NO_COLOUR}..."
+echo -e "#\n########################################################################\n"
 git $1
 
 cd ../backend-tcxreader
-echo -e "\n------------\nExecute \"git $1\" for backend-tcxreader..."
+echo -e "\n\n########################################################################\n#"
+echo -e "#  Execute \"git $1\" for ${CYAN_COLOUR}backend-tcxreader${NO_COLOUR}..."
+echo -e "#\n########################################################################\n"
 git $1
 
 cd ../backend-strava
-echo -e "\n------------\nExecute \"git $1\" for backend-strava..."
+echo -e "\n\n########################################################################\n#"
+echo -e "#  Execute \"git $1\" for ${CYAN_COLOUR}backend-strava${NO_COLOUR}..."
+echo -e "#\n########################################################################\n"
 git $1
 
 cd ../frontend
-echo -e "\n------------\nExecute \"git $1\" for frontend..."
+echo -e "\n\n########################################################################\n#"
+echo -e "#  Execute \"git $1\" for ${CYAN_COLOUR}frontend${NO_COLOUR}..."
+echo -e "#\n########################################################################\n"
 git $1
 
 cd ../backend-location
-echo -e "\n------------\nExecute \"git $1\" for backend-location..."
+echo -e "\n\n########################################################################\n#"
+echo -e "#  Execute \"git $1\" for ${CYAN_COLOUR}backend-location${NO_COLOUR}..."
+echo -e "#\n########################################################################\n"
 git $1
 
 cd ../backend-trace-maker
-echo -e "\n------------\nExecute \"git $1\" for backend-trace-maker..."
+echo -e "\n\n########################################################################\n#"
+echo -e "#  Execute \"git $1\" for ${CYAN_COLOUR}backend-trace-maker${NO_COLOUR}..."
+echo -e "#\n########################################################################\n"
 git $1
