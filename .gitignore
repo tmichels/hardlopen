@@ -13,6 +13,7 @@ Thumbs.db
 /backend-trace-maker
 /sample_runs
 /frontend
+/angular-frontend
 
 # databases
 /database-h2
