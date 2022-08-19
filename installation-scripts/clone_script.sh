@@ -28,12 +28,12 @@ git clone https://$access_token@github.com/tmichels/backend-trace-maker.git
 echo
 
 echo 'Decrypting OpenCage api key.'
-sleep 2
-openssl enc -d -aes-256-cbc -in backend-location/src/main/resources/api-key/OpenCageAPIKey.txt.enc -pass pass:$access_token > backend-location/src/main/resources/api-key/OpenCageAPIKey.txt
+sleep 1
+openssl enc -d -aes256 -in backend-location/src/main/resources/api-key/OpenCageAPIKey.enc -pass pass:$access_token > backend-location/src/main/resources/api-key/OpenCageAPIKey.txt
 echo
 echo 'Decrypting Strava secret.'
-sleep 2
-openssl enc -d -aes-256-cbc -in backend-strava/src/main/resources/api-key/StravaSecret.txt.enc -pass pass:$access_token > backend-strava/src/main/resources/api-key/StravaSecret.txt
+sleep 1
+openssl enc -d -aes256 -in backend-strava/src/main/resources/api-key/StravaSecret.enc -pass pass:$access_token > backend-strava/src/main/resources/api-key/StravaSecret.txt
 echo
 
 echo The repositories were successfully cloned. The structure is expected to be """
