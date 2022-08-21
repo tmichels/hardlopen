@@ -29,7 +29,7 @@ echo
 
 echo 'Decrypting OpenCage api key.'
 sleep 1
-openssl enc -d -aes256 -in backend-location/src/main/resources/api-key/OpenCageAPIKey.enc -pass pass:$access_token > backend-location/src/main/resources/api-key/OpenCageAPIKey.txt
+openssl enc -d -a -A -aes256 -in backend-location/src/main/resources/api-key/OpenCageAPIKey.enc -pass pass:$access_token > backend-location/src/main/resources/api-key/OpenCageAPIKey.txt
 echo
 echo 'Decrypting Strava secret.'
 sleep 1
