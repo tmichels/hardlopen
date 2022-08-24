@@ -29,11 +29,11 @@ echo
 
 echo 'Decrypting OpenCage api key.'
 sleep 1
-openssl enc -d -a -A -aes-256-cbf -in backend-location/src/main/resources/api-key/OpenCageAPIKey.enc -pass pass:$access_token > backend-location/src/main/resources/api-key/OpenCageAPIKey.txt
+openssl enc -d -a -A -aes-256-cfb -in backend-location/src/main/resources/api-key/OpenCageAPIKey.enc -pass pass:$access_token -md sha256 > backend-location/src/main/resources/api-key/OpenCageAPIKey.txt
 echo
 echo 'Decrypting Strava secret.'
 sleep 1
-openssl enc -d -aes256 -in backend-strava/src/main/resources/api-key/StravaSecret.enc -pass pass:$access_token > backend-strava/src/main/resources/api-key/StravaSecret.txt
+openssl enc -d -a -A -aes-256-cfb -in backend-strava/src/main/resources/api-key/StravaSecret.enc -pass pass:$access_token -md sha256 > backend-strava/src/main/resources/api-key/StravaSecret.txt
 echo
 
 echo The repositories were successfully cloned. The structure is expected to be """
