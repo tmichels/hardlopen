@@ -1,4 +1,4 @@
-!# /usr/bin/env bash
+#!/usr/bin/env bash
 
 docker build -t backend-runs ./backend-runs &
 docker build -t backend-tcxreader ./backend-tcxreader &
