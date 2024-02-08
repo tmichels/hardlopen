@@ -11,7 +11,7 @@ function confirm_is_in_right_directory() {
 }
 confirm_is_in_right_directory;
 
-if [[ $1 != "pull" && $1 != "push" && $1 != "status" && $1 != "diff" ]]; then
+if [[ $1 != "pull" && $1 != "push" && $1 != "status" && $1 != "diff" && $1 != "fetch" ]]; then
     echo "Give a valid git argument to execute the git command (e.g. push, pull, status, diff). Nothing is executed."
     exit 1
 fi
