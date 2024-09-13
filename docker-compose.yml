@@ -33,6 +33,7 @@ services:
       - service-address.strava-service=http://backend-strava:8082/
       - service-address.tcx-reader-service=http://backend-tcxreader:8083/
       - service-address.trace-service=http://backend-trace-maker:8084/
+      - "SPRING_PROFILES_ACTIVE=postgres"
     restart: on-failure:10
 
   backend-location:
