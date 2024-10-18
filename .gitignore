@@ -26,3 +26,5 @@ github-ghp.txt
 # Log file
 /docker-logfiles
 *.log
+
+/kubernetes/registry-docker-images
