@@ -12,6 +12,9 @@ spec:
     volumeMounts:
       - mountPath: "/opt/hardlopen/backend-runs/sample_runs"
         name: sample-pv
+    envFrom:
+      - configMapRef:
+          name: backend-runs-config
   volumes:
     - name: sample-pv
       hostPath:
@@ -34,3 +37,10 @@ spec:
   selector:
     run: backend-runs
   type: ClusterIP
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-runs-config
+data:
+  service-address.tcx-reader-service: "http://tcxreader-service:8083"
