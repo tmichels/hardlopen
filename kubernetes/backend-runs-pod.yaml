@@ -9,6 +9,14 @@ spec:
   - image: "192.168.178.17:5000/backend-runs"
     name: backend-runs
     resources: {}
+    volumeMounts:
+      - mountPath: "/opt/hardlopen/backend-runs/sample_runs"
+        name: sample-pv
+  volumes:
+    - name: sample-pv
+      hostPath:
+        type: Directory
+        path: "/home/docker/sample-runs"
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 ---
