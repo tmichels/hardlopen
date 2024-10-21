@@ -4,6 +4,7 @@ registry=192.168.178.17:5000
 
 docker container run -d -p 5000:5000 -e REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY='/data' -v '/home/thomas/projecten/hardlopen/kubernetes/registry-docker-images:/data' registry
 minikube start --insecure-registry="$registry"
+minikube cp ../sample_runs/run-20190709T200709.tcx  /home/docker/sample-runs/run-20190709T200709.tcx
 
 docker tag backend-runs         $registry/backend-runs
 docker tag backend-tcxreader    $registry/backend-tcxreader
