@@ -20,7 +20,7 @@ metadata:
   name: tcxreader-service
 spec:
   ports:
-    - port: 8083
+    - port: 80
       protocol: TCP
       targetPort: 8083
   selector:

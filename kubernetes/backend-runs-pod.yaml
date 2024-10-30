@@ -43,5 +43,5 @@ kind: ConfigMap
 metadata:
   name: backend-runs-config
 data:
-  service-address.tcx-reader-service: "http://tcxreader-service:8083"
+  service-address.tcx-reader-service: "http://tcxreader-service"
   service-address.location-service: "http://location-service"
