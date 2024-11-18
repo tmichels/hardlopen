@@ -6,7 +6,7 @@
     sports watches in the form of TCX files.</p>
 <p>This application helps to analyze your TCX files. Some functionalities:</p>
 <ul>
-    <li>Review statistics (data and graphs) of your TCX runs on a web page</li>
+    <li>Review statistics (data and graphs) of your TCX runs on a web page
     <li>Store runs in your local database and export runs to Excel</li>
     <li>Communicate with external <a href="https://opencagedata.com/">OpenCage</a> API to get information about
         locations
@@ -38,3 +38,13 @@
         http://localhost:4200 to see the web application.
     </li>
 </ol>
+
+<h1>Screen shots</h1>
+<br>
+<img alt="Demo read file" src="demo-read-file.gif" width="1000">
+<br>
+<img alt="Demo run overview" src="demo-run-overview.gif">
+<br>
+<img alt="Demo Excel export" src="demo-excel-export.gif" width="1000">
+<br>
+<img alt="Demo Run Details and Strava" src="demo-run-details-and-strava.gif">

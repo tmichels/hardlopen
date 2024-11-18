@@ -25,7 +25,7 @@ services:
       - ./database-postgres:/opt/hardlopen/database-postgres:rw
       - ./docker-logfiles/backend-runs:/opt/hardlopen/backend-runs/target/logfiles:rw
       - ./backend-runs/src/main/resources/api-keys:/opt/hardlopen/backend-runs/target/src/main/resources/api-keys:ro
-      - ./sample_runs:/opt/hardlopen/sample_runs:rw
+      - /home/thomas/Dropbox/hardloopdata:/opt/hardlopen/sample_runs:ro
     environment:
       - path-configuration.run-files-relative-path=/opt/hardlopen/sample_runs
       - spring.datasource.url=jdbc:postgresql://database:5432/hardlopen
@@ -33,6 +33,7 @@ services:
       - service-address.strava-service=http://backend-strava:8082/
       - service-address.tcx-reader-service=http://backend-tcxreader:8083/
       - service-address.trace-service=http://backend-trace-maker:8084/
+      - "SPRING_PROFILES_ACTIVE=postgres"
     restart: on-failure:10
 
   backend-location:
