@@ -28,4 +28,4 @@ github-ghp.txt
 *.log
 
 /kubernetes/registry-docker-images
-/kubernetes/open-cage-secret.yaml
+/kubernetes/oud/open-cage-secret.yaml

@@ -6,7 +6,7 @@ metadata:
   name: backend-runs
 spec:
   containers:
-  - image: "192.168.178.17:5000/backend-runs"
+  - image: "192.168.178.18:5000/backend-runs"
     name: backend-runs
     resources: {}
     volumeMounts:
@@ -36,7 +36,7 @@ spec:
       targetPort: 8080
   selector:
     run: backend-runs
-  type: ClusterIP
+  type: NodePort
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -45,3 +45,4 @@ metadata:
 data:
   service-address.tcx-reader-service: "http://tcxreader-service"
   service-address.location-service: "http://location-service"
+  service-address.frontend-service: "http://frontend-service"
