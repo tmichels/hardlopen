@@ -1,8 +1,18 @@
 #!/bin/bash
 
-registry=192.168.178.17:5000
-
+# Zorg ervoor dat de docker daemon http ipv https toestaat door het volgende toe te voegen aan /etc/docker/daemon.json:
+#    {
+#      "insecure-registries": [
+#         "192.168.178.18:5000"
+#      ]
+#    }
+# Zie https://stackoverflow.com/questions/49674004/docker-repository-server-gave-http-response-to-https-client/49675214#49675214
+# Herstart docker met:
+#     sudo systemctl restart docker
 docker container run -d -p 5000:5000 -e REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY='/data' -v '/home/thomas/projecten/hardlopen/kubernetes/registry-docker-images:/data' registry
+
+local_ip=`hostname -I | awk {'print $1'}`
+registry=$local_ip:5000
 minikube start --insecure-registry="$registry"
 minikube cp ../sample_runs/run-20190709T200709.tcx  /home/docker/sample-runs/run-20190709T200709.tcx
 
