@@ -15,6 +15,7 @@ Thumbs.db
 /sample_runs
 /frontend
 /angular-frontend
+/run-enricher
 
 # databases
 /database-h2
