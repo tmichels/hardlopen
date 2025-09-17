@@ -21,7 +21,7 @@
 <p>The application consists of 5 Java (Spring), Python and Angular microservices. Each service is in a private git
     repository. In order to download the services, you will need the Github token that I created. If I have provided you
     with the Github token, you can use the installation scripts to download the repositories (see instructions below),
-    build docker images of each service and run the application with docker-compose. Some sample TCX runs are included
+    build podman images of each service and run the application with podman-compose. Some sample TCX runs are included
     in this repository.</p>
 
 <h1>Installation instructions</h1>
@@ -30,11 +30,11 @@
         to download the private repositories with all the services. You will be prompted for the Github personal access
         code (available on request by sending me a message).
     </li>
-    <li>Build the Docker images. Run <code>./installation-scripts/build_docker_images.sh</code> from the application's
+    <li>Build the podman images. Run <code>./installation-scripts/build_podman_images.sh</code> from the application's
         root directory.
     </li>
     <li>Optional: replace the sample runs in the folder <code>sample_runs</code> with your own TCX runs.</li>
-    <li>Start the application. Run <code>docker-compose up</code> from the application's root directory. Go to
+    <li>Start the application. Run <code>podman compose up</code> from the application's root directory. Go to
         http://localhost:4200 to see the web application.
     </li>
 </ol>

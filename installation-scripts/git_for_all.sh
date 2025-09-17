@@ -30,9 +30,9 @@ echo -e "#  Execute \"git $1\" for ${CYAN_COLOUR}backend-runs${NO_COLOUR}..."
 echo -e "#\n########################################################################\n"
 git $1
 
-cd ../backend-tcxreader
+cd ../tcx-to-json
 echo -e "\n\n########################################################################\n#"
-echo -e "#  Execute \"git $1\" for ${CYAN_COLOUR}backend-tcxreader${NO_COLOUR}..."
+echo -e "#  Execute \"git $1\" for ${CYAN_COLOUR}tcx-to-json${NO_COLOUR}..."
 echo -e "#\n########################################################################\n"
 git $1
 

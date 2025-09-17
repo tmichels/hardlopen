@@ -15,6 +15,5 @@ java -jar target/backend-trace-maker-1.jar &
 cd ../frontend
 npm start &
 
-cd ../backend-tcxreader
-source .venv/bin/activate
-python3 application/main.py -s 8083 &
+cd ../tcx-to-json
+java -jar target/tcx-to-json.jar &

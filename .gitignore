@@ -8,7 +8,7 @@ Thumbs.db
 # Other git repositories
 /backend-location
 /backend-runs
-/backend-tcxreader
+/tcx-to-json
 /backend-strava
 /backend-trace-maker
 /backend-xsd-reader
@@ -25,7 +25,7 @@ Thumbs.db
 github-ghp.txt
 
 # Log file
-/docker-logfiles
+/podman-logfiles
 *.log
 
 /kubernetes/registry-docker-images

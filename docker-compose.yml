@@ -7,7 +7,7 @@ services:
       - 4200:4200
 
   database:
-    image: postgres
+    image: docker.io/postgres
     ports:
       - 5432:5432
     environment:
@@ -15,7 +15,7 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=hardlopen
     volumes:
-      - ./database-postgres:/var/lib/postgresql/data
+      - /var/lib/postgresql/data
 
   backend-runs:
     image: backend-runs
@@ -23,15 +23,15 @@ services:
       - 8080:8080
     volumes:
       - ./database-postgres:/opt/hardlopen/database-postgres:rw
-      - ./docker-logfiles/backend-runs:/opt/hardlopen/backend-runs/target/logfiles:rw
+      - ./podman-logfiles/backend-runs:/opt/hardlopen/backend-runs/target/logfiles:rw
       - ./backend-runs/src/main/resources/api-keys:/opt/hardlopen/backend-runs/target/src/main/resources/api-keys:ro
-      - /home/thomas/Dropbox/hardloopdata:/opt/hardlopen/sample_runs:ro
+      - ./sample_runs:/opt/hardlopen/backend-runs/sample_runs:ro
     environment:
       - path-configuration.run-files-relative-path=/opt/hardlopen/sample_runs
       - spring.datasource.url=jdbc:postgresql://database:5432/hardlopen
       - service-address.location-service=http://backend-location:8081/
       - service-address.strava-service=http://backend-strava:8082/
-      - service-address.tcx-reader-service=http://backend-tcxreader:8083/
+      - service-address.tcx-reader-service=http://tcx-to-json:8080/
       - service-address.trace-service=http://backend-trace-maker:8084/
       - "SPRING_PROFILES_ACTIVE=postgres"
     restart: on-failure:10
@@ -42,7 +42,7 @@ services:
       - 8081:8081
     volumes:
       - ./backend-location/src/main/resources/api-key:/opt/hardlopen/backend-location/target/src/main/resources/api-key:ro
-      - ./docker-logfiles/backend-location:/opt/hardlopen/backend-location/target/logfiles:rw
+      - ./podman-logfiles/backend-location:/opt/hardlopen/backend-location/target/logfiles:rw
     restart: on-failure:10
 
   backend-strava:
@@ -51,15 +51,15 @@ services:
       - 8082:8082
     volumes:
       - ./backend-strava/src/main/resources/api-key:/opt/hardlopen/backend-strava/target/src/main/resources/api-key:ro
-      - ./docker-logfiles/backend-strava:/opt/hardlopen/backend-strava/target/logfiles:rw
+      - ./podman-logfiles/backend-strava:/opt/hardlopen/backend-strava/target/logfiles:rw
     restart: on-failure:10
 
-  backend-tcxreader:
-    image: backend-tcxreader
+  tcx-to-json:
+    image: tcx-to-json
     volumes:
       - ./sample_runs:/opt/hardlopen/sample_runs:rw
     ports:
-      - 8083:8083
+      - 8083:8080
     restart: on-failure:10
 
   backend-trace-maker:
@@ -67,5 +67,5 @@ services:
     ports:
       - 8084:8084
     volumes:
-      - ./docker-logfiles/backend-trace-maker:/opt/hardlopen/backend-trace-maker/target/logfiles:rw
+      - ./podman-logfiles/backend-trace-maker:/opt/hardlopen/backend-trace-maker/target/logfiles:rw
     restart: on-failure:10 

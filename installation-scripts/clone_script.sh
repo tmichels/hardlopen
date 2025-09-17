@@ -16,7 +16,7 @@ read -p 'Enter the Github personal access code: ' access_token
 echo
 git clone https://$access_token@github.com/tmichels/backend-runs.git
 echo
-git clone https://$access_token@github.com/tmichels/backend-tcxreader.git
+git clone github.com/tmichels/tcx-to-json.git
 echo
 git clone https://$access_token@github.com/tmichels/backend-strava.git
 echo
@@ -41,7 +41,7 @@ echo The repositories were successfully cloned. The structure is expected to be 
 │  ├── backend-location
 │  ├── backend-runs
 │  ├── backend-strava
-│  ├── backend-tcxreader
+│  ├── tcx-to-json
 │  ├── backend-trace-maker
 │  ├── docker-compose.yml
 │  ├── frontend
@@ -49,6 +49,6 @@ echo The repositories were successfully cloned. The structure is expected to be 
 │  ├── README.md
 │  └── sample_runs
 """
-echo Run \"./installation-scripts/build_docker_images.sh\" to build the docker images \(sudo may be required\).
-echo After building the docker images, start the application by running \"docker-compose up\" \(sudo may be required\).
+echo Run \"./installation-scripts/build_podman_images.sh\" to build the podman images.
+echo After building the podman images, start the application by running \"podman compose up\".
 echo 
