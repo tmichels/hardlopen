@@ -16,6 +16,7 @@ Thumbs.db
 /frontend
 /angular-frontend
 /run-enricher
+/vaadin-frontend
 
 # databases
 /database-h2
