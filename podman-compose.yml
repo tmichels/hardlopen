@@ -31,7 +31,7 @@ services:
       - spring.datasource.url=jdbc:postgresql://database:5432/hardlopen
       - service-address.location-service=http://backend-location:8081/
       - service-address.strava-service=http://backend-strava:8082/
-      - service-address.tcx-reader-service=http://tcx-to-json:8080/
+      - service-address.tcx-reader-service=http://tcx-to-json:8083/
       - service-address.trace-service=http://backend-trace-maker:8084/
       - "SPRING_PROFILES_ACTIVE=postgres"
     restart: on-failure:10
