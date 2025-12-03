@@ -25,7 +25,7 @@ services:
       - ./database-postgres:/opt/hardlopen/database-postgres:rw
       - ./podman-logfiles/backend-runs:/opt/hardlopen/backend-runs/target/logfiles:rw
       - ./backend-runs/src/main/resources/api-keys:/opt/hardlopen/backend-runs/target/src/main/resources/api-keys:ro
-      - /home/thomas/dropbox/bestanden/Hardlopen/Hardloopdata:/opt/hardlopen/backend-runs/sample_runs:ro
+      - /home/thomas/projecten/hardlopen/sample_runs:/opt/hardlopen/backend-runs/sample_runs:ro
     environment:
       - path-configuration.run-files-relative-path=/opt/hardlopen/sample_runs
       - spring.datasource.url=jdbc:postgresql://database:5432/hardlopen
@@ -64,8 +64,41 @@ services:
 
   backend-trace-maker:
     image: backend-trace-maker
+    container_name: trace-maker
     ports:
       - 8084:8084
     volumes:
       - ./podman-logfiles/backend-trace-maker:/opt/hardlopen/backend-trace-maker/target/logfiles:rw
     restart: on-failure:10 
+
+  keycloak-db:
+    image: docker.io/postgres:17
+    container_name: keycloak-db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: secret
+
+  keycloak:
+    image: docker.io/keycloak/keycloak:26.4
+    container_name: keycloak
+    command: start --import-realm
+    ports:
+      - "9000:8080"
+    environment:
+      KC_DB: postgres
+      KC_DB_URL_HOST: keycloak-db
+      KC_DB_URL_PORT: 5432
+      KC_DB_URL_DATABASE: keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: secret
+      KC_HTTP_ENABLED: "true"
+      KC_HOSTNAME: "localhost"
+      KC_DIR: "/opt/keycloak/data/import/"
+      KC_OVERRIDE: "true"
+    volumes:
+      - "./keycloak:/opt/keycloak/data/import"
+    depends_on:
+      - keycloak-db
