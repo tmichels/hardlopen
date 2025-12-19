@@ -16,7 +16,7 @@ read -p 'Enter the Github personal access code: ' access_token
 echo
 git clone https://$access_token@github.com/tmichels/backend-runs.git
 echo
-git clone github.com/tmichels/tcx-to-json.git
+git clone https://$access_token@github.com/tmichels/tcx-to-json.git
 echo
 git clone https://$access_token@github.com/tmichels/backend-strava.git
 echo
