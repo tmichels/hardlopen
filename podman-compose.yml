@@ -117,3 +117,5 @@ services:
       keycloak:
         condition: service_started
     restart: on-failure:10
+    volumes:
+      - ./podman-logfiles/vaadin:/app/logfiles:rw
