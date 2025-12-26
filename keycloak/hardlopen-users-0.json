@@ -1,6 +1,23 @@
 {
   "realm" : "hardlopen",
   "users" : [ {
+    "id" : "811e6091-36ee-4718-98e3-c61a8ff524ea",
+    "username" : "service-account-backend-runs",
+    "emailVerified" : false,
+    "enabled" : true,
+    "createdTimestamp" : 1766750576670,
+    "totp" : false,
+    "serviceAccountClientId" : "backend-runs",
+    "credentials" : [ ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-hardlopen" ],
+    "clientRoles" : {
+      "realm-management" : [ "view-users" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  }, {
     "id" : "0590f6ac-044f-45da-b7f2-2c70d067621f",
     "username" : "thomas",
     "firstName" : "Thomas",
