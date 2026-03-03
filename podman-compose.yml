@@ -1,10 +1,10 @@
 version: '3'
 
 services:
-  frontend:
-    image: frontend
-    ports:
-      - 4200:4200
+#  frontend:
+#    image: frontend
+#    ports:
+#      - 4200:4200
 
   database:
     image: docker.io/postgres:17
@@ -26,6 +26,7 @@ services:
       - ./podman-logfiles/backend-runs:/opt/hardlopen/backend-runs/target/logfiles:rw
       - ./backend-runs/src/main/resources/api-keys:/opt/hardlopen/backend-runs/target/src/main/resources/api-keys:ro
       - /home/thomas/projecten/hardlopen/sample_runs:/opt/hardlopen/backend-runs/sample_runs:ro
+      - log-volume:/logbestanden:rw
     environment:
       - path-configuration.run-files-relative-path=/opt/hardlopen/sample_runs
       - spring.datasource.url=jdbc:postgresql://database:5432/hardlopen
@@ -58,9 +59,12 @@ services:
     image: tcx-to-json
     volumes:
       - ./sample_runs:/opt/hardlopen/sample_runs:rw
+      - log-volume:/logbestanden:rw
     ports:
       - 8083:8083
     restart: on-failure:10
+    environment:
+      - spring.profiles.active=podman
 
   backend-trace-maker:
     image: backend-trace-maker
@@ -112,10 +116,44 @@ services:
     ports:
       - 8085:8085
     environment:
-      - spring.profiles.active=production
+      - spring.profiles.active=podman
     depends_on:
       keycloak:
         condition: service_started
     restart: on-failure:10
     volumes:
-      - ./podman-logfiles/vaadin:/app/logfiles:rw
+      - log-volume:/logbestanden:rw
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.3.1
+    container_name: elastic
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:9.3.1
+    container_name: filebeat
+    user: root # Dit is nodig omdat anders de logbestanden op de host niet kunnen worden gelezen
+    command: filebeat -e --strict.perms=false
+    volumes:
+      - log-volume:/logbestanden:ro
+      - /home/thomas/projecten/hardlopen/logging/filebeat.yaml:/usr/share/filebeat/filebeat.yml:ro
+#      - /home/thomas/projecten/hardlopen/backend-runs/logfiles:/logfiles:ro
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:9.3.1
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+
+volumes:
+  log-volume: {}

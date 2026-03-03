@@ -1,0 +1,15 @@
+filebeat.inputs:
+  - type: filestream
+    paths: # Dit zijn de paden in de container, er moet dus hier een volume gekoppeld worden vanuit de applicatie container
+      - /logbestanden/*.json
+    processors:
+      # Zonder deze processor zou de message in Elastic de volledige JSON ECS logregel zijn.
+      # Hiermee wordt deze uitgesplitst in alle velde die in het jsonbericht voorkomen
+      # (message wordt overschreven door het JSON veld message).
+      - decode_json_fields:
+          fields: ["message"]
+          target: ""
+          overwrite_keys: true
+
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
